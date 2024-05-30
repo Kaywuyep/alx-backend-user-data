@@ -55,7 +55,8 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     Establishes a connection to the MySQL database using environment variables.
 
     Returns:
-        mysql.connector.connection.MySQLConnection: Database connection instance.
+        mysql.connector.connection.MySQLConnection:
+        Database connection instance.
     """
     db_host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
     db_name = os.getenv("PERSONAL_DATA_DB_NAME", "")
