@@ -190,7 +190,7 @@ You must use user_object_from_credentials
 With this update, now your API is fully protected by a Basic Authentication. Enjoy!
 
 In the first terminal:
-
+API_HOST=0.0.0.0 API_PORT=5000 ./main_6.py
 
 
 
