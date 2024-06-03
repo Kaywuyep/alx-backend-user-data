@@ -192,6 +192,22 @@ With this update, now your API is fully protected by a Basic Authentication. Enj
 In the first terminal:
 API_HOST=0.0.0.0 API_PORT=5000 ./main_6.py
 
+12. Basic - Allow password with ":"
+#advanced
+Improve the method def extract_user_credentials(self, decoded_base64_authorization_header) to allow password with :.
+
+In the first terminal:
+
+
+13. Require auth with stars
+#advanced
+Improve def require_auth(self, path, excluded_paths) by allowing * at the end of excluded paths.
+
+Example for excluded_paths = ["/api/v1/stat*"]:
+
+/api/v1/users will return True
+/api/v1/status will return False
+/api/v1/stats will return False
 
 
 
