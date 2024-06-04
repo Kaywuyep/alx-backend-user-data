@@ -8,7 +8,6 @@ class Auth:
     """a basic authentication class"""
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """a simple boolean auth"""
-        # return False
         if path is None:
             return True
         if not excluded_paths:
@@ -20,11 +19,14 @@ class Auth:
 
         # Check if the normalized path is in the excluded paths
         for excluded_path in excluded_paths:
-            if excluded_path.endswith('/'):
-                if path == excluded_path:
+            if excluded_path.endswith('*'):
+                # Remove the '*' and check if path starts with excluded_path
+                if path.startswith(excluded_path[:-1]):
                     return False
             else:
-                if path == excluded_path + '/':
+                if not excluded_path.endswith('/'):
+                    excluded_path += '/'
+                if path == excluded_path:
                     return False
         return True
 
