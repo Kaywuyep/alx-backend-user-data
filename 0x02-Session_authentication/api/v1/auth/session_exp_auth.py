@@ -18,11 +18,11 @@ class SessionExpAuth(SessionAuth):
     def __init__(self) -> None:
         """
         Initializes a new SessionExpAuth instance.
-        
+
         Assign an instance attribute session_duration:
-        
+
         To the environment variable SESSION_DURATION casts to an integer
-        
+
         If this environment variable doesn’t exist or can’t be parse
         to an integer, assign to 0
         """
@@ -52,10 +52,10 @@ class SessionExpAuth(SessionAuth):
         """
         if session_id in self.user_id_by_session_id:
             session_dict = self.user_id_by_session_id[session_id]
-            
+
             if self.session_duration <= 0:
                 return session_dict['user_id']
-            
+
             if 'created_at' not in session_dict:
                 return None
             current_time = datetime.now()
